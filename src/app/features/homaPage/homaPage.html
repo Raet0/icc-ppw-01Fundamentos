@@ -1,0 +1,11 @@
+<H1>Home</H1>
+<h2>Fundamentos</h2>
+<p>homePage works!</p>
+<h1>Contador: {{counter}}</h1>
+<h1>CounterSignal: {{counterSignal()}}</h1>
+<button (click)="changeValue(1)">Sumar</button>
+<button (click)="changeValue(-1)">Restar</button>
+<button (click)="resetValue(0)">Reset</button>
+<button [routerLink]="['/perfil']">
+  Ir a perfil
+</button>

@@ -1,0 +1,34 @@
+<h1>{{ name() }}</h1>
+
+<dl>
+  <td>Nombre:</td>
+  <dd>{{ name() }}</dd>
+
+  <td>Apellido:</td>
+  <dd>{{ lastName() }}</dd>
+
+  <td>Edad:</td>
+  <dd>{{ age() }}</dd>
+
+  <td>Nombre Completo:</td>
+  <dd>{{ getFullName() }}</dd>
+
+  <td>Nombre y Apellido (Mayúsculas):</td>
+  <!-- TODO: Mostrar name() y lastName() en mayúsculas sin crear nueva señal -->
+  <dd>{{ name().toUpperCase()}} {{lastName().toUpperCase()}}</dd>
+</dl>
+
+<button (click)="changeData()">
+  Cambiar datos
+</button>
+
+<button (click)="changeAge()">
+  Cambiar edad
+</button>
+
+<button (click)="resetData()">
+  Reset
+</button>
+<button [routerLink]="['/']">
+  Ir a la raiz
+</button>
