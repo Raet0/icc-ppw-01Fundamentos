@@ -4,10 +4,10 @@ import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-homa-page',
   imports: [RouterLink],
-  templateUrl: `./homaPage.html`,
+  templateUrl: `./homePage.html`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomaPage { 
+export class HomePage { 
   constructor(){
     setInterval(()=>{
       console.log("*");
