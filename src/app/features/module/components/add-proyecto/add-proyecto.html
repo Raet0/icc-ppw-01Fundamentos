@@ -1,0 +1,22 @@
+<p>add-proyecto works!</p>,
+<div>
+    <h3>Agregar Proyecto</h3>
+    <h4>Proyecto a Agregar {{ name() }}</h4>
+    <input
+      type="text"
+      placeholder="Nombre del Proyecto"
+      [value]="name()"
+      (change)="changeName(txtName.value)"
+      #txtName
+    />
+
+    <input
+      type="text"
+      placeholder="Descripción del Proyecto"
+      [value]="description()"
+      (change)="changeDescription(txtDescription.value)"
+      #txtDescription
+    />
+
+    <button type="submit" (click)="addProyecto()">Agregar</button>
+  </div>

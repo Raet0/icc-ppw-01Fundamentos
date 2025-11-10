@@ -1,1 +1,12 @@
-<p>proyecto-dos-pages works!</p>,
+<listado-proyectos
+  listName="Listado Proyectos desde Servicio"
+  [proyectos]="proyectosService.proyectos()"
+></listado-proyectos>
+
+<p>Componente que agregue al servicio</p>
+
+<add-proyecto
+
+  (newPoyecto)="proyectosService.addProyecto($event)"
+
+></add-proyecto>
