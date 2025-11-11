@@ -11,6 +11,7 @@ export class AddProyecto {
   description = signal('');
 
   newPoyecto = output<Proyecto>();
+  removeProyecto = output<number>();
 
   addProyecto() {
     const newProyecto: Proyecto = {
@@ -22,6 +23,10 @@ export class AddProyecto {
     this.newPoyecto.emit(newProyecto);
     this.name.set('');
     this.description.set('');
+  }
+
+  delProyecto(id : number) {
+    this.removeProyecto.emit(id);
   }
 
   changeName(value: string) {

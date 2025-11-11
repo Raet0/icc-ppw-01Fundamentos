@@ -22,13 +22,15 @@ export class Proyectos {
   changeDescriptiona(value : string){
     this.descripcion.set(value);
   }
+  delProyecto() {
+    this.proyectos.set(this.proyectos().slice(1));
+  }
   addProyecto() {
     const newProyecto: Proyecto = {
       id: this.proyectos().length + 1,
       nombre: this.name(),
       descripcion: this.descripcion(),
     };
-
     this.proyectos.set([...this.proyectos(), newProyecto]);
     this.name.set('');
     this.descripcion.set('');
