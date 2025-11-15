@@ -23,7 +23,7 @@ export const routes: Routes = [
     component : ProyectoDosPages
   },
   {
-    path : "formularios",
+    path : "icc-ppw-01Fundamentos/formularios",
     component : FormularioPage
   },
 ];
