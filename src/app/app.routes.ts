@@ -23,7 +23,7 @@ export const routes: Routes = [
     component : ProyectoDosPages
   },
   {
-    path : "Formularios",
+    path : "formularios",
     component : FormularioPage
   },
 ];
