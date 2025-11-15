@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: 'app-perfil-page',
+  selector: 'perfil-page',
   imports: [RouterLink],
   templateUrl: `./PerfilPage.html`,
   changeDetection: ChangeDetectionStrategy.OnPush,

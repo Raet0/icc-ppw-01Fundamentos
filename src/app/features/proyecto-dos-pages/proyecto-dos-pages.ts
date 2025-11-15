@@ -4,7 +4,7 @@ import { ListadoProyectos } from "../proyectos/components/listado-proyectos/list
 import { AddProyecto } from "../module/components/add-proyecto/add-proyecto";
 
 @Component({
-  selector: 'app-proyecto-dos-pages',
+  selector: 'proyecto-dos-pages',
   imports: [ListadoProyectos, AddProyecto],
   templateUrl: './proyecto-dos-pages.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
