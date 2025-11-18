@@ -29,19 +29,11 @@ export class ProyectosService {
           },
         ];
   }
-
-  // proyectos = signal<Proyecto[]>([
-
-  // {
-  // id: 1, nombre: 'Proyecto A',
-  // descripcion: 'Descripción'
-  // },
-  // ])
   delProyecto() {
     this.proyectos.set(this.proyectos().slice(1));
-  }
+  }
   addProyecto(newProyecto: Proyecto) {
-    console.log("hola");
+    console.log('hola');
     this.proyectos.set([...this.proyectos(), newProyecto]);
   }
 }

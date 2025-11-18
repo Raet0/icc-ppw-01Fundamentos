@@ -3,7 +3,6 @@ import { HomePage } from './features/homePage/homePage';
 import { PerfilPage } from './features/PerfilPage/PerfilPage';
 import { ProyectoDosPages } from './features/proyecto-dos-pages/proyecto-dos-pages';
 import { Proyectos } from './features/proyectos/proyectos';
-import { FormularioPage } from './features/Formularios/Formularios';
 
 export const routes: Routes = [
   {
@@ -23,7 +22,9 @@ export const routes: Routes = [
     component : ProyectoDosPages
   },
   {
-    path : "formularios",
-    component : FormularioPage
+    path : "formulario",
+    loadChildren:
+    () => import('./features/formualrios/pages/formularios-routes')
+    .then(m => m.formulariosRoutes),
   },
 ];

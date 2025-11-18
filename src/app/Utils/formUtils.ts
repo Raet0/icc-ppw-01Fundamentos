@@ -1,6 +1,14 @@
-import { FormGroup, ValidationErrors } from '@angular/forms';
+import { FormArray, FormGroup, ValidationErrors } from '@angular/forms';
 
 export class FormUtils {
+  static isValidFieldInArray(formArray: FormArray, index: number): boolean {
+    const control = formArray.controls[index];
+    return !!(control.errors && control.touched);
+  }
+
+  static getFieldErrorInArray(arg0: any, _t36: number) {
+    throw new Error('Method not implemented.');
+  }
 
   static isValidField(form: FormGroup, fieldName: string): boolean | null {
     return !!form.controls[fieldName].errors && form.controls[fieldName].touched;

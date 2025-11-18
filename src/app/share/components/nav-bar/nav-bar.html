@@ -1,6 +1,4 @@
 <nav>
-  <!-- <a href="/"> Home</a> -->
-  <!-- <a href="/perfil"> Perfil</a> -->
   <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true}">
     Home
   </a>
@@ -8,12 +6,14 @@
     Perfil
   </a>
   <a routerLink="/proyectos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true}">
-    Proyectos
+    Proyects
   </a>
   <a routerLink="/proyecto-dos-pages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true}">
-    Proyectos-2
+    Proyects2
   </a>
-  <a href="/formularios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true}">Formularios</a>
+  <a [routerLink]="['/formulario/basic']"routerLinkActive="active">BasicForm</a> 
+  <a [routerLink]="['/formulario/dynamic']"routerLinkActive="active">DynamicForm</a> 
+  <a [routerLink]="['/formulario/more']"routerLinkActive="active">More</a> 
 
 
 
