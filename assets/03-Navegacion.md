@@ -10,7 +10,7 @@
 
 ### Autor
 
-**Adrian Lazo Cabrera**  
+**Rafael Prieto**  
 📧 pprietos@est.ups.edu.ec  
 💻 GitHub: [raet0](https://github.com/raet0)
 
