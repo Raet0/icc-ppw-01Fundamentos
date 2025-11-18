@@ -6,7 +6,7 @@
   <img src="capturas/logo-framework-angular.png" width="80" alt="Angular Logo">
 </div>
 
-## Práctica 3: Navegación en Angular
+## Práctica 4: Formularios Reactivos en Angular 
 
 ### Autor
 
