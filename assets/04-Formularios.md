@@ -21,9 +21,49 @@
 Este documento muestra el HTML y el TypeScript corregidos para un formulario dinámico con FormArray, incluyendo validaciones y métodos utilitarios.
 
 ---
+# Introducción
 
-## ✅ HTML corregido (`formularios-dinamicos.html`)
+En esta práctica se desarrolla un formulario dinámico utilizando Angular, Reactive Forms y la clase **FormArray**, permitiendo agregar y eliminar elementos de forma interactiva.
 
+Este patrón es útil cuando no conocemos el número de entradas que agregará el usuario: lenguajes, teléfonos, tareas, hobbies, etc.
+
+El objetivo principal es comprender:
+- Cómo crear formularios dinámicos
+- Cómo validar cada control y el FormArray completo
+- Cómo centralizar mensajes de error mediante **FormUtils**
+
+---
+
+# Contenido del informe
+
+1. Estructura del formulario dinámico  
+2. Código HTML  
+3. Código TypeScript del componente  
+4. Rutas del módulo de formularios  
+5. Capturas de la página desplegada  
+6. FormUtils para validar FormArray  
+7. Pruebas recomendadas  
+8. Despliegue en GitHub Pages  
+9. Conclusión  
+
+---
+
+# 1. Estructura del Formulario Dinámico
+
+El formulario tiene:
+
+- **Campo fijo:** `name`
+- **Control independiente:** `newLenguaje`
+- **FormArray:** `lenguajes`
+- **Validaciones:**  
+  - Por control  
+  - Por FormArray (minLength)
+- **Acciones:** agregar, eliminar, enviar
+- **FormUtils:** maneja los mensajes de error
+
+
+## ✅ HTML (`formularios-dinamicos.html`)
+![HTML Codgio](capturas/codigo-html-dinamico.png)
 ```html
 <h2>Formularios: <small>Dinámicos</small></h2>
 
@@ -90,3 +130,95 @@ Este documento muestra el HTML y el TypeScript corregidos para un formulario din
   </div>
 
 </form>
+```
+# Codigo ts:
+![Codigo ts](capturas/foto-ts-dinamico.png)
+```ts
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { FormUtils } from '../../../../../Utils/formUtils';
+
+@Component({
+  selector: 'app-formularios-dinamicos',
+  imports: [ReactiveFormsModule],
+  templateUrl: './formularios-dinamicos.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class FormulariosDinamicos {
+
+  private fb = inject(FormBuilder);
+
+  formUtils = FormUtils;
+
+  newLenguaje: FormControl = this.fb.control('', [
+    Validators.required,
+    Validators.minLength(3)
+  ]);
+
+  myForm: FormGroup = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    lenguajes: this.fb.array<FormControl>([], [
+      Validators.minLength(3)
+    ])
+  });
+
+  get lenguajes(): FormArray {
+    return this.myForm.get('lenguajes') as FormArray;
+  }
+
+  onAddToLenguajes() {
+    if (this.newLenguaje.invalid) return;
+
+    this.lenguajes.push(
+      this.fb.control(this.newLenguaje.value, [
+        Validators.required,
+        Validators.minLength(3)
+      ])
+    );
+
+    this.newLenguaje.reset();
+  }
+
+  onDeleteLenguaje(index: number) {
+    this.lenguajes.removeAt(index);
+  }
+
+  onSubmit() {
+    this.myForm.markAllAsTouched();
+    if (this.myForm.invalid) return;
+
+    console.log('Datos enviados:', this.myForm.value);
+  }
+}
+```
+# Ts routes
+Se a creado un codigo llamado formularios-routers este ayudaba a que las rutas actuen de manera dinamica.
+![Codigo formualarios dinamicos](capturas/routers-ts-dinamico.png)
+
+
+# Secciones de la pagina desplegada
+## Primera Sección
+![Primera Sección Despleglada](capturas/primer-sección.png)
+## Segunda Sección
+![Segunda Sección Desplegada](capturas/segunda-seccion.png)
+## Tercera Sección Desplegada
+![Tercera Sección Desplegada](capturas/tercera-seccion.png)
+
+# Concluciones:
+El uso de FormArray permite construir formularios dinámicos, flexibles y escalables.
+Con este enfoque se puede:
+
+Crear listas dinámicas de elementos
+
+Validar cada control y el conjunto completo
+
+Centralizar errores con FormUtils
+
+Mantener el código organizado y fácilmente mantenible
